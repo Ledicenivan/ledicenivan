@@ -486,7 +486,7 @@
   }
   
   /* NAV CONTAINER: ocupa columnas 1 a 12 en la primera fila */
-  .nav-container {
+  .nav-container-footer {
     grid-column: 1 / span 12;
     display: flex;
     justify-content: space-between;
@@ -494,7 +494,7 @@
   }
   
   /* Lista de enlaces de navegación */
-  .nav-links {
+  .nav-links-footer {
     display: flex;
     align-items: center;
     gap: var(--spacing-medium);
@@ -504,7 +504,7 @@
   }
   
   /* Enlaces (similar a NavBar) */
-  .nav-link {
+  .nav-link-footer {
     position: relative; /* para pseudo-elemento subrayado */
     padding: 0 4px;
     font-family: var(--font-primary);
@@ -517,7 +517,7 @@
   }
   
   /* Subrayado en hover/focus con pseudo-elemento */
-  .nav-link::after {
+  .nav-link-footer::after {
     content: "";
     position: absolute;
     left: 0;
@@ -528,13 +528,13 @@
     transition: width 0.2s ease;
   }
   
-  .nav-link:hover::after,
-  .nav-link:focus::after {
+  .nav-link-footer:hover::after,
+  .nav-link-footer:focus::after {
     width: 100%;
   }
   
   /* Enlace activo en bold */
-  .nav-link-active {
+  .nav-link-active-footer {
     font-weight: var(--font-paragraph-bold); /* 700 */
     /* Si quieres la línea siempre visible en el activo, añade:
        .nav-link-active::after { width: 100%; }
@@ -617,12 +617,12 @@
       margin: 0 var(--spacing-medium);
     }
   
-    .nav-container {
+    .nav-container-footer {
       flex-direction: column;
       gap: var(--spacing-small);
     }
   
-    .nav-links {
+    .nav-links-footer {
       justify-content: center;
     }
   }
@@ -632,7 +632,7 @@
       margin: 0 var(--spacing-small);
     }
   
-    .nav-links {
+    .nav-links-footer {
       flex-direction: column;
       gap: var(--spacing-small);
     }
