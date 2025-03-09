@@ -1,0 +1,652 @@
+/* ==========================
+   🔠 IMPORTAR FUENTE
+   ========================== */
+   @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap");
+
+   /* ==========================
+      🎨 TOKENS DE DISEÑO
+      ========================== */
+   :root {
+     /* 🎨 Colores Primarios */
+     --color-primary-100: #000000;
+     --color-primary-090: #222226;
+     --color-primary-080: #2B2B33;
+     --color-primary-070: #333340;
+     --color-primary-050: #BEBECC;
+     --color-primary-020: #DBDAE5;
+     --color-primary-010: #EBEBF2;
+     --color-primary-000: #FFFFFF;
+   
+     /* 📏 Tipografía */
+     --font-primary: "Space Grotesk", sans-serif;
+   
+     /* 🏷 Headline */
+     --font-headline-weight: 700;
+     --font-headline-line-height: 125%;
+     --font-headline-spacing: 0%;
+     --font-headline-12: 96px;
+     --font-headline-11: 80px;
+     --font-headline-10: 64px;
+     --font-headline-09: 48px;
+     --font-headline-08: 36px;
+     --font-headline-07: 32px;
+     --font-headline-06: 24px;
+     --font-headline-05: 20px;
+     --font-headline-04: 18px;
+     --font-headline-03: 16px;
+     --font-headline-02: 14px;
+     --font-headline-01: 12px;
+   
+     /* 📖 Paragraph */
+     --font-paragraph-line-height: 150%;
+     --font-paragraph-spacing: 0%;
+     --font-paragraph-bold: 700;
+     --font-paragraph-regular: 400;
+     --font-paragraph-light: 300;
+     --font-paragraph-large: 18px;
+     --font-paragraph-medium: 16px;
+     --font-paragraph-default: 14px;
+     --font-paragraph-small: 12px;
+   
+     /* 🔘 Botón */
+     --font-button-line-height: 100%;
+     --font-button-spacing: 5%;
+     --font-button-large: 16px;
+     --font-button-medium: 14px;
+     --font-button-small: 12px;
+   
+     /* 📏 Espaciado y Bordes */
+     --spacing-small: 16px;
+     --spacing-medium: 32px;
+     --spacing-large: 64px;
+     --spacing-grid-margin: 64px;
+     --spacing-grid-gutter: 24px;
+
+     --paragraph-spacing: 0 0 12px 0;
+
+     --border-radius: 10px;
+   }
+   
+   /* ==========================
+      🔠 TIPOGRAFÍA GLOBAL
+      ========================== */
+   body {
+     margin: 0;
+     padding: 0;
+     font-family: var(--font-primary);
+     font-size: var(--font-paragraph-default);
+     line-height: var(--font-paragraph-line-height);
+     color: var(--color-primary-090);
+     background-color: var(--color-primary-000);
+   
+   }
+   
+   /* ==========================
+      NAVBAR (Adaptado de Builder.io)
+      ========================== */
+   .site-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: var(--spacing-small) var(--spacing-grid-margin);
+     border-bottom: 1px solid var(--color-primary-050);
+     background-color: var(--color-primary-010);
+
+   }
+   
+   .logo-container {
+     display: flex;
+     width: 72px;
+     height: 72px;
+     justify-content: center;
+     align-items: center;
+     border-radius: 120px;
+     border: 1px solid var(--color-primary-020);
+     background-color: var(--color-primary-010);
+   }
+   
+   .logo-link {
+     text-decoration: none;
+     display: block;
+   }
+   
+   .logo-svg {
+     width: 48px;
+     height: 48px;
+   }
+   
+   .main-nav {
+     flex-grow: 0;
+     /* Borde de depuración para visualizar el contenedor de navegación */
+     /* border: 1px dashed green; */
+   }
+   
+   .nav-list {
+     display: flex;
+     align-items: center;
+     gap: var(--spacing-medium);
+     list-style: none;
+     margin: 0;
+     padding: 0;
+   }
+   
+   .nav-link {
+    position: relative; /* Necesario para posicionar el pseudo-elemento */
+    font-family: var(--font-primary);
+    font-size: var(--font-headline-04); /* 18px */
+    line-height: var(--font-paragraph-line-height);
+    color: var(--color-primary-070);
+    text-decoration: none;
+    padding: 0 4px;
+    cursor: pointer;
+    font-weight: var(--font-paragraph-regular);
+  }
+  
+  /* Pseudo-elemento que dibuja la línea inferior */
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* Ajusta si quieres más separación del texto */
+    width: 0;
+    height: 2px;  /* Grosor de la línea */
+    background-color: var(--color-primary-090);
+    transition: width 0.2s ease; /* Velocidad y efecto de la animación */
+  }
+  
+  /* Al hacer hover/focus, la línea se extiende al 100% */
+  .nav-link:hover::after,
+  .nav-link:focus::after {
+    width: 100%;
+  }
+   
+   
+  .nav-link-active {
+    color: var(--color-primary-090);
+    font-weight: var(--font-paragraph-bold);
+  }
+  
+  .nav-link-selected {
+    font-weight: var(--font-paragraph-bold);
+  }
+   
+   /* ==========================
+      RESPONSIVE
+      ========================== */
+   @media (max-width: 991px) {
+     .site-header {
+       padding: var(--spacing-small) var(--spacing-medium);
+     }
+   }
+   
+  @media (max-width: 640px) {
+     .site-header {
+       padding: var(--spacing-small);
+     }
+     .logo-container {
+       width: 48px;
+       height: 48px;
+     }
+     .main-nav {
+       display: none; /* Si quieres ver el menú en móvil, comenta esta línea */
+     }
+   }
+   
+   /* ==========================
+   HERO (12 columnas desktop)
+   ========================== */
+.hero {
+  /* Altura mínima en desktop (ajusta a tu gusto) */
+  min-height: 800px;
+
+  /* Fondo usando tu token */
+  background-color: var(--color-primary-010);
+
+  /* Convertimos .hero en grid */
+  display: grid;
+
+  /* Centra verticalmente a sus elementos hijos */
+  align-items: center;
+}
+
+/* Contenedor interno en rejilla de 12 columnas */
+.hero-grid {
+  display: grid;
+  /* 12 columnas, cada una fracción del espacio disponible */
+  grid-template-columns: repeat(12, 1fr);
+
+  /* Espacio entre columnas (gutter) */
+  grid-gap: var(--spacing-grid-gutter);
+
+  /* Márgenes laterales de 64px */
+  margin: 0 var(--spacing-grid-margin);
+}
+
+/* Bloque de contenido textual */
+.content {
+  /* Ejemplo: ocupar columnas 1 a 7 en desktop */
+  grid-column: 7 / span 5;
+
+  display: flex;
+  flex-direction: column;
+  /* Espacio vertical entre elementos */
+  gap: var(--spacing-medium);
+}
+
+/* Título */
+.title {
+  color: var(--color-primary-070);
+  /* 20px => var(--font-headline-05) */
+  font-size: var(--font-headline-05);
+  font-weight: var(--font-headline-weight);
+  line-height: var(--font-headline-line-height);
+  margin: 0;
+}
+
+/* Descripción */
+.textblock {
+    margin: 0px;
+}
+
+/* Descripción */
+.description {
+  color: var(--color-primary-070);
+  /* 18px => var(--font-paragraph-large) */
+  font-size: var(--font-paragraph-large);
+  font-weight: var(--font-paragraph-regular);
+  line-height: var(--font-paragraph-line-height);
+  margin: var(--paragraph-spacing);
+}
+
+/* Enlaces dentro del texto */
+.text-link {
+  color: var(--color-primary-070);
+  text-decoration: underline;
+}
+
+/* Contenedor de íconos de redes sociales */
+.social-links {
+  /* Ejemplo: columnas 10 a 12 en desktop */
+  grid-column: 12 / span 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-small);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Cada link de red social */
+.social-link {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+
+/* Ícono con fondo y bordes redondeados */
+.social-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  background: var(--color-primary-020);
+}
+
+/* ==========================
+   MEDIA QUERIES
+   ========================== */
+@media (max-width: 991px) {
+  .hero-grid {
+    /* Disminuye el gutter si lo deseas */
+    grid-gap: var(--spacing-medium);
+
+    /* Reduce márgenes laterales en tablets */
+    margin: 0 var(--spacing-medium);
+  }
+
+  .content {
+    /* Ocupa todo el ancho */
+    grid-column: 1 / span 12;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .social-links {
+    /* Ubica las redes debajo del contenido */
+    grid-column: 1 / span 12;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: var(--spacing-medium);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-grid {
+    margin: 0 var(--spacing-small);
+  }
+
+  /* Ajusta tamaños de fuente en móvil */
+  .title {
+    /* 18px => var(--font-headline-04) */
+    font-size: var(--font-headline-04);
+  }
+
+  .description {
+    /* 16px => var(--font-paragraph-medium) */
+    font-size: var(--font-paragraph-medium);
+  }
+}
+   
+  /* ==========================
+   PROJECT SECTION
+   ========================== */
+.project-section {
+  width: 100%;
+  position: relative;
+  background-color: var(--project-bg-color, #EBEBF2); /* color por defecto */
+  /* Opcional: margen vertical o padding si deseas separar esta sección de otras */
+  /* padding: var(--spacing-large) 0; */
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: var(--spacing-grid-gutter);
+  margin: 0 var(--spacing-grid-margin);
+  max-height: 800px; /* Ajusta según tu diseño */
+  position: relative; /* Para manejar posicionamiento interno */
+}
+
+/* Bloque de texto en las primeras 5 columnas */
+.project-text {
+  grid-column: 1 / span 5;
+  display: flex;
+  flex-direction: column;
+  /* Espaciado vertical entre título, categoría y descripción */
+  gap: var(--spacing-small);
+  /* Padding interno */
+  padding: var(--spacing-large) 0;
+  /* Texto en color claro (usando tokens) */
+  color: var(--color-primary-010);
+}
+
+/* Título del proyecto */
+.project-title {
+  /* 24px ≈ var(--font-headline-06) */
+  font-size: var(--font-headline-06);
+  font-weight: var(--font-headline-weight);
+  line-height: var(--font-headline-line-height);
+  margin: 0;
+}
+
+/* Categoría (ej. "Brand"), más pequeño y ligero */
+.project-category {
+  /* 16px ≈ var(--font-headline-03) o var(--font-paragraph-medium) */
+  font-size: var(--font-headline-03);
+  font-weight: var(--font-paragraph-light); /* 300 */
+  line-height: var(--font-headline-line-height);
+  margin: 0 0 var(--spacing-small) 0;
+}
+
+/* Descripción del proyecto */
+.project-description {
+  /* 18px ≈ var(--font-paragraph-large) */
+  font-size: var(--font-paragraph-large);
+  font-weight: var(--font-paragraph-regular);
+  line-height: var(--font-paragraph-line-height);
+  margin: 0;
+}
+
+/* Contenedor de la parte derecha (Columnas 6-12) */
+.project-image-container {
+  grid-column: 6 / span 7;
+ }
+
+/* Imagen con object-fit: contain y anclada al centro-arriba */
+.project-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-height: 800px; /* Ajusta según tu diseño */
+  object-position: 50% 0; /* Centrado horizontal, anclado arriba */
+  display: block;
+}
+
+/* ==========================
+   RESPONSIVE
+   ========================== */
+   @media (max-width: 991px) {
+    .project-grid {
+      grid-gap: var(--spacing-medium);
+      margin: 0 var(--spacing-medium);
+      min-height: auto;
+    }
+  
+    .project-text {
+      grid-column: 1 / span 12;
+      padding: var(--spacing-medium);
+    }
+  
+    .project-image-container {
+      grid-column: 1 / span 12;
+      min-height: 400px; /* Ajusta a tu gusto */
+    }
+  
+    .project-image {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      object-position: 50% 0;
+      object-fit: contain;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .project-grid {
+      margin: 0 var(--spacing-small);
+    }
+  
+    .project-text {
+      padding: var(--spacing-small);
+    }
+  
+    .project-title {
+      font-size: var(--font-headline-05); /* 20px */
+    }
+  
+    .project-category {
+      font-size: var(--font-headline-02); /* 14px */
+    }
+  
+    .project-description {
+      font-size: var(--font-paragraph-medium); /* 16px */
+    }
+  
+    .project-image-container {
+      min-height: 300px;
+    }
+  }
+   
+/* ==========================
+   FOOTER (12 COLUMNAS)
+   ========================== */
+   .footer {
+    background-color: var(--color-primary-090); /* #222226 */
+    color: var(--color-primary-010);           /* #EBEBF2 */
+    padding: var(--spacing-large) 0;
+  }
+  
+  /* Contenedor principal en grid */
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: var(--spacing-grid-gutter);
+    margin: 0 var(--spacing-grid-margin);
+    /* Espacio vertical entre filas */
+    row-gap: var(--spacing-medium);
+  }
+  
+  /* NAV CONTAINER: ocupa columnas 1 a 12 en la primera fila */
+  .nav-container {
+    grid-column: 1 / span 12;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Lista de enlaces de navegación */
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-medium);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Enlaces (similar a NavBar) */
+  .nav-link {
+    position: relative; /* para pseudo-elemento subrayado */
+    padding: 0 4px;
+    font-family: var(--font-primary);
+    font-size: var(--font-headline-04); /* 18px */
+    font-weight: var(--font-paragraph-regular); /* 400 */
+    line-height: var(--font-paragraph-line-height);
+    color: var(--color-primary-010);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Subrayado en hover/focus con pseudo-elemento */
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px; 
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary-010);
+    transition: width 0.2s ease;
+  }
+  
+  .nav-link:hover::after,
+  .nav-link:focus::after {
+    width: 100%;
+  }
+  
+  /* Enlace activo en bold */
+  .nav-link-active {
+    font-weight: var(--font-paragraph-bold); /* 700 */
+    /* Si quieres la línea siempre visible en el activo, añade:
+       .nav-link-active::after { width: 100%; }
+    */
+  }
+  
+  /* ICONOS SOCIALES */
+  .social-icons-footer {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-small);
+    margin: 0;
+    padding: 0;
+  }
+  
+  .social-link-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    transition: opacity 0.2s ease;
+  }
+  
+  .social-link:hover {
+    opacity: 0.8;
+  }
+  
+  .social-icon-footer {
+    width: 20px;
+    height: 20px;
+    display: block;
+  }
+  
+  /* LOGO: ocupa toda la fila, centrado */
+  .logo-container-footer {
+    grid-column: 1 / span 12;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: var(--spacing-small);
+  }
+  
+  .logo-footer {
+    width: 80px;
+    height: 80px;
+  }
+  
+  /* DIVIDER: ocupa toda la fila */
+  .divider {
+    grid-column: 1 / span 12;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-primary-010);
+    border: none;
+    margin: 0;
+  }
+  
+  /* COPYRIGHT: ocupa toda la fila */
+  .copyright {
+    grid-column: 1 / span 4;
+  }
+  
+  /* 
+    Ajusta la fuente y peso si quieres más pequeño. 
+    Lo normal es 14px o 16px. 
+  */
+  copyright {
+    font-size: var(--font-paragraph-default); /* 14px */
+    font-weight: var(--font-paragraph-regular);
+    margin: 0;
+  }
+  
+  /* ==========================
+     RESPONSIVE
+     ========================== */
+  @media (max-width: 991px) {
+    .footer-grid {
+      grid-gap: var(--spacing-medium);
+      margin: 0 var(--spacing-medium);
+    }
+  
+    .nav-container {
+      flex-direction: column;
+      gap: var(--spacing-small);
+    }
+  
+    .nav-links {
+      justify-content: center;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .footer-grid {
+      margin: 0 var(--spacing-small);
+    }
+  
+    .nav-links {
+      flex-direction: column;
+      gap: var(--spacing-small);
+    }
+  
+    .social-icons {
+      justify-content: center;
+    }
+  
+    .logo {
+      width: 64px;
+      height: 64px;
+    }
+  
+    .divider {
+      margin-top: var(--spacing-small);
+    }
+  }

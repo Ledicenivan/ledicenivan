@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Depuración NavBar</title>
+  <style>
+    /* ==========================
+       IMPORTAR FUENTE
+       ========================== */
+    @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap");
+
+    /* ==========================
+       TOKENS DE DISEÑO
+       ========================== */
+    :root {
+      --color-primary-100: #000000;
+      --color-primary-090: #222226;
+      --color-primary-080: #2B2B33;
+      --color-primary-070: #333340;
+      --color-primary-050: #BEBECC;
+      --color-primary-020: #DBDAE5;
+      --color-primary-010: #EBEBF2;
+      --color-primary-000: #FFFFFF;
+
+      --font-primary: "Space Grotesk", sans-serif;
+
+      --font-headline-weight: 700;
+      --font-headline-line-height: 125%;
+      --font-headline-spacing: 0%;
+      --font-headline-12: 96px;
+      --font-headline-11: 80px;
+      --font-headline-10: 64px;
+      --font-headline-09: 48px;
+      --font-headline-08: 36px;
+      --font-headline-07: 32px;
+      --font-headline-06: 24px;
+      --font-headline-05: 20px;
+      --font-headline-04: 18px;
+      --font-headline-03: 16px;
+      --font-headline-02: 14px;
+      --font-headline-01: 12px;
+
+      --font-paragraph-line-height: 150%;
+      --font-paragraph-spacing: 0%;
+      --font-paragraph-bold: 700;
+      --font-paragraph-regular: 400;
+      --font-paragraph-light: 300;
+      --font-paragraph-large: 18px;
+      --font-paragraph-medium: 16px;
+      --font-paragraph-default: 14px;
+      --font-paragraph-small: 12px;
+
+      --font-button-line-height: 100%;
+      --font-button-spacing: 5%;
+      --font-button-large: 16px;
+      --font-button-medium: 14px;
+      --font-button-small: 12px;
+
+      --spacing-small: 16px;
+      --spacing-medium: 32px;
+      --spacing-large: 64px;
+      --spacing-grid-margin: 64px;
+      --spacing-grid-gutter: 24px;
+
+      --border-radius: 10px;
+    }
+
+    /* ==========================
+       ESTILOS GLOBALES
+       ========================== */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-primary);
+      font-size: var(--font-paragraph-default);
+      line-height: var(--font-paragraph-line-height);
+      color: var(--color-primary-090);
+      background-color: var(--color-primary-000);
+    }
+
+    /* ==========================
+       NAVBAR
+       ========================== */
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--spacing-small) var(--spacing-grid-margin);
+      border-bottom: 1px solid var(--color-primary-050);
+      background-color: var(--color-primary-010);
+      /* Borde de depuración para ver el header */
+      border: 2px solid blue;
+    }
+
+    .logo-container {
+      display: flex;
+      width: 72px;
+      height: 72px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 120px;
+      border: 1px solid var(--color-primary-020);
+      background-color: var(--color-primary-010);
+    }
+
+    .logo-link {
+      text-decoration: none;
+      display: block;
+    }
+
+    .logo-svg {
+      width: 48px;
+      height: 48px;
+    }
+
+    .main-nav {
+      flex-grow: 0;
+    }
+
+    .nav-list {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-medium);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-link {
+      font-family: var(--font-primary);
+      font-size: var(--font-headline-04); /* 18px */
+      line-height: var(--font-paragraph-line-height);
+      color: var(--color-primary-070);
+      text-decoration: none;
+      padding: 0 4px;
+      cursor: pointer;
+      font-weight: var(--font-paragraph-regular);
+    }
+
+    .nav-link:hover,
+    .nav-link:focus {
+      text-decoration: underline;
+    }
+
+    .nav-link-active {
+      color: var(--color-primary-090);
+      font-weight: var(--font-paragraph-bold);
+    }
+
+    .nav-link-selected {
+      font-weight: var(--font-paragraph-bold);
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <a href="/" class="logo-link" aria-label="Home">
+      <div class="logo-container">
+        <svg
+          class="logo-svg"
+          width="52"
+          height="48"
+          viewBox="0 0 52 48"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <rect
+            width="48"
+            height="48"
+            transform="translate(2)"
+            fill="var(--color-primary-010)"
+          ></rect>
+          <path
+            d="M50 24H42.8V40.8L31.5998 7.20001L20.4002 40.8L9.20001 7.20001V24.0283H2"
+            stroke="var(--color-primary-070)"
+            stroke-width="3"
+            stroke-miterlimit="10"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
+      </div>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <ul class="nav-list">
+        <li><a href="/" class="nav-link nav-link-active">Inicio</a></li>
+        <li><a href="/trabajo" class="nav-link nav-link-selected">Trabajo</a></li>
+        <li><a href="/sobre-mi" class="nav-link">Sobre mí</a></li>
+      </ul>
+    </nav>
+  </header>
+</body>
+</html>
